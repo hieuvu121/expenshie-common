@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class AiRequestEvent {
     private String prompt;
     private Long householdId;
+    private AiRequestType type;
 }
