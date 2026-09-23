@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserEvent {
+public class UserEvent implements DomainEvent {
+
+    /** Set by OutboxWriter. Consumers dedup on this. */
+    private String eventId;
     private Long userId;
     private String email;
     private String fullName;
