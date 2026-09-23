@@ -14,7 +14,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ExpenseEvent {
+public class ExpenseEvent implements DomainEvent {
+
+    /** Set by OutboxWriter. Consumers dedup on this. */
+    private String eventId;
     private Long expenseId;
     private Long householdId;
     private String status;         // PENDING, APPROVED, REJECTED
